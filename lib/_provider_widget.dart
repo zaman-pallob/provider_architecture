@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -6,7 +5,7 @@ import 'package:provider/provider.dart';
 abstract class ProviderWidget<T> extends Widget {
   final bool listen;
 
-  ProviderWidget({Key key, this.listen = true}) : super(key: key);
+  ProviderWidget({Key? key, this.listen = true}) : super(key: key);
 
   @protected
   Widget build(BuildContext context, T model);
@@ -19,7 +18,7 @@ class _DataProviderElement<T> extends ComponentElement {
   _DataProviderElement(ProviderWidget widget) : super(widget);
 
   @override
-  ProviderWidget get widget => super.widget;
+  ProviderWidget get widget => super.widget as ProviderWidget;
 
   @override
   Widget build() =>
